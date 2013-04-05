@@ -1,0 +1,214 @@
+<div id="popUpOuterBox">
+    
+    <div id="popUpInnerBox">
+    
+        <div class="header">Level ${user.level} - ${dynamicTemplateData.levelInfo.popupTitle}</div>
+        
+        <div class="content">
+        
+        {{if (dynamicTemplateData.data.length > 0)}}
+        
+            {{each(i, post) dynamicTemplateData.data}}
+        
+            <div class="post">
+                
+                <!-- POST HEADER -->
+                
+                    <div class="popupHeader">
+                        <img src="${post.author.profilePicture}"
+                             class="profilePicture waitForLoading" />
+                        <span class="personName">
+                            ${post.author.name}
+                        </span><br />
+                        <span class="date">${post.date}</span>
+                        &nbsp;
+                        <img src="./view/images/friends.png" />
+                        <div class="headerBreakbar"></div>
+                        <div class="postRating">${i + 1}</div>
+                    </div>
+                
+                <!-- USER CONTENT -->
+        
+                {{if post.authorContent.type == 'birthday'}}
+
+                    <div class="status">
+                        
+                        <div class="birthdayCakeImage">
+                            {{html post.authorContent.data.status}}
+                        </div>
+                        
+                        
+                    </div>
+
+                {{else post.authorContent.type == 'status'}}
+        
+                    <div class="status">
+                        {{html post.authorContent.data.status}}
+                    </div>
+
+                {{else post.authorContent.type == 'link'}}
+
+                    <div class="status">
+
+                        {{html post.authorContent.data.status}}
+
+                        <table class="linkTable" 
+                               onclick="window.open('${post.authorContent.data.url}',
+                                        '_blank')">
+
+                        <tr>
+
+                            <td class="captionPicture waitForLoading">    
+                                <img src="${post.authorContent.data.captionPicture}"
+                                 style="border: 0px; margin-bottom: -4px;"
+                                 onload="templateImageManagement($(this));" />
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td class="summary">
+
+                                    <a href="#">
+                                        ${post.authorContent.data.summaryTitle}    
+                                    </a><br /><br />
+
+                                        ${post.authorContent.data.summaryDescription}
+                            </td>
+
+                        </tr></table>
+
+                    </div>
+
+                {{else post.authorContent.type == 'photo'}}
+
+                    {{if post.authorContent.data.status != ''}}
+
+                        <div class="status">
+                            {{html post.authorContent.data.status}}
+                        </div>
+
+                    {{else}}
+
+                        <div style="height: 12px;"></div>
+
+                    {{/if}}
+
+                        <img src="${post.authorContent.data.photoUrl}"
+                             style="width: 238px;
+                                    height: ${post.authorContent.data.photoHeight}px;
+                                    margin: 3px;
+                                    margin-bottom: 0px;"
+                             class="waitForLoading" />
+            
+                {{/if}}
+                
+                <!-- LIKERS AND COMMENTS -->
+                
+                <div class="postCommentsAndLikes"
+                     
+                     {{if user.level == 2}}
+                     
+                        onclick="if ($(this).next().is(':hidden')) {$(this).next().fadeIn(400);} else {$(this).next().fadeOut(250);}">
+                     
+                        <img src="./view/images/like_small.png" 
+                             style="margin-right: 3px;" />
+                      
+                        ${post.friendsContent.likers.length}
+                     
+                     {{else}}
+                     
+                        onclick="window.open('${post.url}','_blank')">
+                     
+                            {{if post.friendsContent.likers > 0}}
+                     
+                      
+                                <img src="./view/images/like_small.png" 
+                                     style="margin-right: 3px;" />
+
+                                ${post.friendsContent.likers}
+
+
+                             {{/if}}
+
+                             {{if post.friendsContent.comments > 0}}
+
+                                <img src="./view/images/comment_small.png" 
+                                     style="margin-right: 3px; margin-left: 7px;" />
+
+                                ${post.friendsContent.comments}
+
+                             {{/if}}
+                     
+                        
+                     {{/if}}
+                     
+                     
+                </div>
+                
+                {{if post.authorContent.type == 'birthday'}}
+
+                    <div class="birthdayLikes">
+                    
+                        <img src="./view/images/like_small.png" 
+                                 style="margin-right: 3px;" />
+                        
+                        {{each(likerNumber, liker) post.friendsContent.likers}}
+                        
+                            {{if likerNumber < post.friendsContent.likers.length - 1}}
+                                        
+                                <span class="likersName">
+                                    ${liker.name}</span>,
+
+                            {{else}}
+
+                                <span class="likersName">
+                                    ${liker.name}</span>
+
+                            {{/if}}
+                            
+                        
+                        {{/each}}
+                        
+                        wished you a happy birthday.
+                        
+
+                    </div>
+
+                {{/if}}
+                
+                
+                
+        
+            </div>    
+
+            {{/each}}
+            
+        {{else}}
+            
+                <img src="./view/images/nothing_to_show.png" style="margin-top: 20px; margin-bottom: 25px;" /><br />
+                <span style="font-weight: bold; color: #3B5998">Sorry, nothing to show</span>
+                
+        {{/if}}
+            
+        </div>
+        
+        <div class="footer">
+            
+            {{if user.level % 2 == 1}}
+
+                <a href="http://www.facebook.com/dialog/feed?app_id=87741124305&link=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D-MNv-nE6ggY%26feature%3Dshare&display=popup&redirect_uri=https%3A%2F%2Fwww.youtube.com%2Ffacebook_redirect" target="_blank">
+                    <div class="okButton">OK</div>
+                </a>
+
+            {{else}}
+
+                <div class="okButton">OK</div>
+
+            {{/if}}
+            
+        </div>
+    </div>
+    
+</div>

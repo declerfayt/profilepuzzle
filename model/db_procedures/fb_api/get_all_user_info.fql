@@ -1,0 +1,11 @@
+SELECT uid, 
+       locale, 
+       birthday_date,
+       first_name,
+       last_name,
+       current_location.city,
+       current_location.country,
+       pic,
+       sex
+FROM user
+WHERE uid={{userID}}

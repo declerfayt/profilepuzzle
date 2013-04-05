@@ -1,0 +1,9 @@
+SELECT status_id
+FROM status 
+WHERE uid = me()
+AND 
+( 
+        time >= {{beginOfYear}} 
+    AND time <= {{endOfYear}} 
+) 
+LIMIT 500

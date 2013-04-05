@@ -1,0 +1,62 @@
+#startupLayer {
+    
+   display: block;
+   position: fixed;
+   z-index: 7;
+   background-color: #E7EBF2;
+}
+
+#videoTutorial {
+    
+    position: relative;
+    left: 50%;
+    top: 50%;
+    height: 336px;
+    width: 600px;
+    margin-top: -194px;
+    margin-left: -300px;
+    padding: 0px;
+}
+
+#progressBarImagesForStartUpLayer {
+    
+    position: relative;
+    left: 50%;
+    top: 50%;
+    height: 32px;
+    width: 140px;
+    margin-left: -300px;
+    margin-top: 25px;
+    padding: 0px;
+}
+
+#displayFirstQuestionButton {
+    
+    position: relative;
+    opacity: 0;
+    left: 50%;
+    top: 50%;
+    width: 106px;
+    height: 80px;
+    margin-top: -280px;
+    margin-left: -53px;
+    background: url("../images/next_question_button_big.png") repeat-x center transparent;
+    z-index: 1;
+}
+
+#displayFirstQuestionButton:hover {
+    
+    cursor: pointer;
+    background: url("../images/next_question_button_hover_big.png") repeat-x center transparent;
+}
+
+#watchOnYoutube {
+    
+  position: absolute;
+  top: 3px;
+  left: -3px;
+  width: 60px;
+  height: 28px;
+  text-align: center;
+  padding: 0px
+}

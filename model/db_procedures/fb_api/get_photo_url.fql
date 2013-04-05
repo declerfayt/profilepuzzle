@@ -1,0 +1,10 @@
+SELECT src,
+       height,
+       width
+FROM photo_src
+WHERE photo_id = {{postID}}
+AND 
+(
+       width = 320
+    OR height = 480
+)

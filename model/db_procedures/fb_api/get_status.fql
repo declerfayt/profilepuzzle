@@ -1,0 +1,5 @@
+SELECT message,
+       time,
+       uid
+FROM status 
+WHERE status_id = {{postID}}

@@ -1,0 +1,82 @@
+#popUpInnerBox .content .post { 
+
+    border-radius: 3px;
+    position: relative;
+    width: 244px;
+    background-color: #FFFFFF;
+    border: 1px solid #C4CDE0;
+    padding: 0px;
+    margin: 15px;
+    margin-bottom: 25px;
+    margin-left: 23px;
+    color: #333333;
+    font-size: 11px;
+    line-height: 1.28;
+    text-align: left;
+    direction: ltr;
+}
+
+
+.popupHeader {
+    
+    padding: 12px 12px 0px 12px;
+}
+
+.popupHeader .postRating {
+    
+    position: absolute;
+    left: 220px;
+    top: -10px;
+    width: 32px;
+    height: 26px;
+    background-color: #E7EBF2;
+    border-radius: 3px;
+    border: 1px solid #6D84B4;
+    color: #6D84B4;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 6px;
+}
+
+strong .darkBlue {
+ 
+    color: #6D84B4;
+}    
+
+.birthdayCakeImage {
+    
+    height: 27px;
+    width: 215px;
+    background: transparent url('../images/birthday_cake.png') no-repeat top left;
+    text-align: right;
+    font-weight: bold;
+    color: #FFFFFF;
+    padding-top: 7px;
+    padding-right: 5px;
+}
+
+.postCommentsAndLikes {
+    
+    background-color: #EDEFF4;
+    padding: 5px 12px;
+    text-align: right;
+    margin: 3px;
+    color: #3B5998;
+    cursor: pointer;
+    border: 1px solid #EDEFF4;
+}
+
+.postCommentsAndLikes:hover {
+    
+    border: 1px solid #97A4C2;
+}
+
+.birthdayLikes {
+    
+    display: none;
+    background-color: #EDEFF4;
+    padding: 5px 12px;
+    margin: 1px 3px 3px 3px;
+    border: 1px solid #EDEFF4;
+}

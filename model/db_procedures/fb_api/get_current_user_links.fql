@@ -1,0 +1,4 @@
+SELECT link_id
+FROM link 
+WHERE owner = me()
+LIMIT 500

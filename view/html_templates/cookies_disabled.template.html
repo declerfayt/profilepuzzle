@@ -1,0 +1,71 @@
+<div id="popUpOuterBox">
+    
+    <div id="popUpInnerBox">
+    
+        <div class="header">Cookies disabled</div>
+        
+        <div class="content">
+            
+                <img src="./view/images/nothing_to_show.png" style="margin-top: 20px; margin-bottom: 25px;" /><br />
+                <span style="font-weight: bold; color: #3B5998">
+                    Sorry, you must activate cookies to run this app 
+                    (<a id="cookiesMoreInfoLink" href="#" target="_blank">click here to get more info...</a>)
+                </span>               
+            
+        </div>
+        
+        <div class="footer">
+            
+            <div class="okButton">OK</div>
+            
+        </div>
+    </div>
+    
+</div>
+
+<script type="text/javascript">
+    
+    var userAgent = navigator.userAgent.toLowerCase(); 
+    $.browser.chrome = /chrome/.test(navigator.userAgent.toLowerCase()); 
+
+    var moreInfoLink;
+    
+    if ($.browser.chrome) {
+        
+        userAgent = userAgent.substring(userAgent.indexOf('chrome/') +7);
+        userAgent = userAgent.substring(0,userAgent.indexOf('.'));
+        $.browser.version = userAgent;
+        $.browser.safari = false;
+        moreInfoLink = 'http://www.timeanddate.com/custom/cookieschrome.html';
+        
+    }
+    else if ($.browser.msie) {
+        
+        moreInfoLink = 'http://www.timeanddate.com/custom/cookiesie.html';
+        
+    }
+    else if ($.browser.mozilla) {
+        
+        moreInfoLink = 'http://www.timeanddate.com/custom/cookiesmozilla.html';
+        
+    }
+    else if ($.browser.safari) {
+        
+      userAgent = userAgent.substring(userAgent.indexOf('version/') +8);
+      userAgent = userAgent.substring(0,userAgent.indexOf('.'));
+      $.browser.version = userAgent;
+        moreInfoLink = 'http://www.timeanddate.com/custom/cookiessafari.html';
+    }
+    else if ($.browser.opera) {
+        
+        moreInfoLink = 'http://www.timeanddate.com/custom/cookiesopera.html';
+        
+    }
+    else {
+        
+        moreInfoLink = 'http://www.timeanddate.com/custom/cookiesother.html';
+    }
+    
+    $('#cookiesMoreInfoLink').attr('href', moreInfoLink);
+    
+</script>

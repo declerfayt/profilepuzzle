@@ -1,0 +1,49 @@
+#tutorial {
+    
+    z-index: 10;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 73px;
+    width: 146px;
+}
+
+#mousePicture {
+    
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 73px;
+    width: 73px;
+}
+
+.clickOff {
+    
+    background: url("../images/mouse_click_off.png") no-repeat center transparent;
+}
+
+.clickOn {
+    
+    background: url("../images/mouse_click_on.png") no-repeat center transparent;
+}
+
+#mouseCursor {
+    
+    position: absolute;
+    top: 0px;
+    left: 74px;
+    border: 4px dashed #C4CDE0;
+    border-radius: 10px;
+    height: 67px;
+    width: 67px;
+}
+
+.regular {
+    
+    background: url("../images/mouse_cursor_regular.png") no-repeat center transparent;
+}
+
+.move {
+    
+    background: url("../images/mouse_cursor_move.png") no-repeat center transparent;
+}

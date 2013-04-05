@@ -1,0 +1,11 @@
+SELECT object_id
+FROM comment
+WHERE object_id IN
+(    
+    SELECT link_id
+    FROM link
+    WHERE owner = {{friendID}}
+)
+AND fromid = {{userID}}
+ORDER BY rand()
+LIMIT 1000

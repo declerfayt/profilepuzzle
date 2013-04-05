@@ -1,0 +1,11 @@
+SELECT object_id
+FROM photo 
+WHERE object_id IN 
+(    
+     SELECT object_id
+     FROM photo_tag 
+     WHERE subject = me()
+     LIMIT 500
+)
+AND owner != me()
+LIMIT 500

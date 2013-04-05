@@ -1,0 +1,4 @@
+SELECT status_id
+FROM status 
+WHERE uid = me()
+LIMIT 500

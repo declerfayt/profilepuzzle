@@ -1,0 +1,8 @@
+SELECT object_id
+FROM comment
+WHERE object_id IN 
+(
+	SELECT {{primaryKey}}
+	FROM #{{posts}}
+)
+ORDER BY rand()

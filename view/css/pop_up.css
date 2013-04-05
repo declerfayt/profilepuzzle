@@ -1,0 +1,108 @@
+#popUpLayer {
+    
+    display: none;
+    position: fixed;
+    z-index: 5;
+    background: transparent url("../images/blue_transp_background.png") repeat right top;
+}
+
+#popUpOuterBox {
+    
+    position: absolute;
+    width: 324px;
+    left: 50%;
+    top: 50%;
+    height: 370px;
+    margin-left: -182px;
+    margin-top: -195px;
+    border-radius: 8px;
+    border: 10px solid rgba(82, 82, 82, 0.7);
+}
+
+#popUpInnerBox {
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 324px;
+    height: 100%;
+    border: 1px solid #3B5998;
+}
+
+#popUpInnerBox .header {
+    
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 20px;
+    width: 304px;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 10px;
+    background-color: #6D84B4
+}
+
+#popUpInnerBox .content {
+ 
+    position: absolute;
+    overflow-y: scroll;
+    left: 0px;
+    top: 30px;
+    bottom: 30px;
+    width: 314px;
+    height: 280px;
+    padding: 5px;
+    background-color: #E7EBF2;
+    text-align: center;
+}
+
+#popUpInnerBox .footer {
+ 
+    position: absolute;
+    height: 40px;
+    bottom: 0px;
+    width: 294px;
+    padding: 5px 15px;
+    background-color: #F2F2F2;
+    border-top: 1px solid #CCCCCC;
+}    
+
+#popUpInnerBox .footer .okButton {
+    
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 13px;
+    line-height: 16px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    padding: 2px 6px;
+    white-space: nowrap;
+    font-weight: bold;
+    height: 18px;
+    background: #5B74A8 url('../images/button.png') no-repeat top left;
+    border: 1px solid #1A356E;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.okButtonText, .okButtonText:visited, .okButtonText:hover {
+    
+    font-size: 13px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-weight: bold;
+    height: 18px;
+    border: 0px;
+    text-decoration: none;
+}
+
+#cookiesMoreInfoLink, #cookiesMoreInfoLink:visited, #cookiesMoreInfoLink:hover {
+    
+    font-weight: bold;
+    color: #3B5998;
+}

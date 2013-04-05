@@ -1,0 +1,51 @@
+#progressBarLayer {
+    
+    position: fixed;
+    z-index: 6;
+    background-image: url("../images/blue_transp_background.png");
+    background-color: #E7EBF2;
+    background-repeat: repeat;
+    
+}
+
+#progressBarImages {
+    
+    position: relative;
+    left: 50%;
+    top: 50%;
+    height: 32px;
+    width: 140px;
+    margin-left: -70px;
+    margin-top: -16px;
+    padding: 0px;
+}
+
+.progressBarCompleted, .progressBarLoading, .progressBarToLoad {
+    
+    position: absolute;
+    height: 32px;
+    top: 0px;
+    border: 0px;
+    margin: 0px;
+}
+
+.progressBarCompleted {
+    
+    left: 0px;
+    width: 0px;
+    background: url("../images/progress_bar_blue_bg.png") no-repeat transparent;
+}
+
+.progressBarLoading {
+    
+    left: 0px;
+    width: 32px;
+    background: url("../images/progress_bar.gif") no-repeat transparent;
+}
+
+.progressBarToLoad {
+    
+    left: 36px;
+    width: 140px;
+    background: url("../images/progress_bar_white_bg.png") no-repeat transparent;
+}

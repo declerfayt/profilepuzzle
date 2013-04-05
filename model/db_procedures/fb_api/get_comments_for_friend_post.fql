@@ -1,0 +1,16 @@
+SELECT id,
+       fromid,
+       text
+FROM comment
+WHERE object_id = {{postID}}
+AND 
+(
+    fromid IN
+    (
+        SELECT uid2
+        FROM #friendsIDs
+    )
+    OR fromid = me()
+)
+ORDER BY time
+LIMIT 5

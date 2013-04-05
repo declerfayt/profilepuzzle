@@ -1,0 +1,22 @@
+SELECT uid,
+       first_name,
+       last_name,
+       pic_square
+FROM user
+WHERE uid IN
+(
+    SELECT user_id
+    FROM like 
+    WHERE object_id = {{postID}}
+)
+AND 
+(
+    uid IN
+    (
+        SELECT uid2
+        FROM #friendsIDs
+    )
+    OR uid = me()
+)
+ORDER BY rand()
+LIMIT 5

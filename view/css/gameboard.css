@@ -1,0 +1,254 @@
+#gameboard {
+    
+    position: relative;
+    width: 540px;
+    margin-left: 15px;
+    z-index: 0;
+    margin-top: 65px;
+
+}
+
+.userLink, .userLink:visited, .userLink:hover {
+    
+    font-weight: normal;
+    color: #3B5998;
+}
+
+.postContainer {
+    
+    position: absolute;
+    width: 250px;
+    left: 50%;
+}
+
+.left {
+    
+    margin-left: -265px;
+}
+
+.right {
+    
+    margin-left: 16px;
+}
+
+.spinePointerLeft {
+    
+    position: absolute;
+    background: transparent url("../images/spine_pointer_left.png") no-repeat right top;
+    height: 15px;
+    width: 18px;
+    border: 0px;
+    left: 50%;
+    margin-left: -14px;
+    top: 30px;
+}
+
+.spinePointerRight {
+    
+    position: absolute;
+    background: transparent url("../images/spine_pointer_right.png") no-repeat right top;
+    height: 15px;
+    width: 18px;
+    border: 0px;
+    left: 50%;
+    margin-left: -1px;
+    top: 60px;
+}
+
+.post {
+    
+    border-radius: 3px;
+    position: relative;
+    width: 244px;
+    background-color: #FFFFFF;
+    border: 1px solid #C4CDE0;
+    padding: 3px;
+    margin-bottom: 20px;
+}
+
+.profilePicture {
+    
+    height: 32px;
+    width: 32px;
+    border: 0px;
+    float: left;
+    margin-right: 10px;
+}
+
+.personName {
+    
+    color: #3B5998;
+    font-weight: bold;
+}
+
+.post .date {
+    
+    border-bottom: medium none;
+    color: gray;
+    line-height: 15px;
+    
+}
+
+.post .header {
+    
+    padding: 12px 12px 0px 12px;
+}
+
+.post .headerBreakbar {
+    
+    border-bottom: 1px solid #E5E5E5;
+    height: 7px;
+    width: 100%;
+}
+
+.post .status {
+    
+    font-size: 13px;
+    line-height: 18px;
+    padding: 12px;
+}
+
+.commentContainer, .likersContainer {
+    
+    background-color: #EDEFF4;
+    padding: 5px 12px;
+    border-bottom: 1px solid #FFFFFF;
+    min-height: 32px;
+}
+
+.likersContainer {
+    
+    min-height: 0px;
+    margin-top: 7px;
+}
+
+.commentContainer {
+    
+    padding-left: 10px;
+}
+
+.post .likersName {
+    
+    color: #3B5998;
+}
+
+.post .linkTable {
+    
+    width: 223px;
+    margin-top: 15px;
+    background-color: #F6F7F9;
+    border: 1px solid #D3DAE8;
+    border-collapse: collapse;
+    cursor: pointer;
+}
+
+.linkTable .captionPicture {
+    
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
+
+.linkTable .summary {
+    
+    color: gray;
+    font-size: 11px;
+    line-height: 1.28;
+    border-top: 1px solid #D3DAE8;
+    padding: 8px 11px;
+}
+
+.linkTable a {
+    
+    color: #3B5998;
+}
+
+.emptyDots {
+    
+    letter-spacing: -1px;
+    margin-right: 5px;
+}
+
+#nextQuestionButtonAnimation {
+    
+    position: fixed;
+    opacity: 0.4;
+    bottom: 15px;
+    right: 23px;
+    width: 30px;
+    height: 23px;
+    z-index: 3;
+    padding: 0px;
+}
+
+#nextQuestionButtonAnimation img {
+ 
+    width: 100%;
+    height: 100%;
+}    
+
+#nextQuestionButton {
+    
+    position: fixed;
+    bottom: 15px;
+    right: 23px;
+    width: 30px;
+    height: 23px;
+    background: url("../images/next_question_button_small.png") repeat-x center transparent;
+    z-index: 1;
+}
+
+#nextQuestionButton:hover {
+    
+    cursor: pointer;
+    background: url("../images/next_question_button_hover_small.png") repeat-x center transparent;
+}
+
+.disabled {
+    
+    opacity: 0.4;
+    cursor: default;
+}
+
+.disabled:hover {
+    
+    cursor: default !important;
+    background: url("../images/next_question_button_small.png") repeat-x center transparent !important;
+}
+
+#peopleChoice_0, #peopleChoice_1, #peopleChoice_2 {
+    
+    position: fixed;
+    border-radius: 3px;
+    height: 31px;
+    width: 32px;
+    right: 22px;
+    border: 1px solid #C4CDE0;
+    padding: 0px;
+}
+
+#peopleChoice_0 img, #peopleChoice_1 img, #peopleChoice_2 img {
+    
+    opacity: 0.4;
+    height: 32px;
+    width: 32px;
+        
+}    
+
+#peopleChoice_0 {
+    
+    bottom: 62px;
+    
+}
+
+#peopleChoice_1 {
+    
+    bottom: 100px;
+    
+}
+
+#peopleChoice_2 {
+    
+    bottom: 138px;
+    
+}

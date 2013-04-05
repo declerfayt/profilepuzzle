@@ -1,0 +1,9 @@
+SELECT link_id
+FROM link 
+WHERE owner = me()
+AND 
+( 
+        created_time >= {{beginOfYear}} 
+    AND created_time <= {{endOfYear}} 
+) 
+LIMIT 500

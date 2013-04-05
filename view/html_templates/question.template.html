@@ -1,0 +1,339 @@
+<!-- GAMEBOARD -->
+
+<div id="gameboard">
+
+{{each(i, post) dynamicTemplateData}}
+
+
+    <div class="postContainer {{if i == 0}}left{{else}}right{{/if}}">    
+    <div class="post">
+        
+        <!-- POST HEADER -->
+        <div class="header noPossibleAnswer">
+                <img src="${post.author.profilePicture}"
+                     class="profilePicture waitForLoading" />
+                <span class="personName">
+                    ${post.author.name}
+                </span><br />
+                
+                {{if post.authorContent.type == 'friendsInCommon'}}
+                
+                    <span class="date">Bonus quiz</span>
+                    
+                {{else}}
+                
+                    <span class="date">${post.date}</span>
+                
+                {{/if}}
+                
+                &nbsp;
+                <img src="./view/images/friends.png" />
+                <div class="headerBreakbar"></div>
+            </div>
+
+        <!-- USER CONTENT -->
+        
+            {{if post.authorContent.type == 'status'}}
+        
+                <div class="status noPossibleAnswer">
+                    {{html post.authorContent.data.status}}
+                </div>
+            
+            {{else post.authorContent.type == 'friendsInCommon'}}
+            
+                <div class="status noPossibleAnswer">
+                    
+                    <table  style="border: 0px; padding: 0px;"><tr><td>
+                                
+                       <img src="./view/images/now_friends.png" 
+                            style="margin-right: 10px;" />
+                        
+                    </td><td>
+                        
+                        <span class="personName">
+                            ${post.author.name}
+                        </span> 
+                        and 
+                        <span class="personName">
+                            {{html post.authorContent.data.currentUserName}}
+                        </span>    
+                        are friends.
+                    
+                    </td></tr></table>
+                    
+                </div>
+            
+            {{else post.authorContent.type == 'link'}}
+            
+                <div class="status noPossibleAnswer">
+                    
+                    {{html post.authorContent.data.status}}
+
+                    <table class="linkTable" 
+                           onclick="window.open('${post.authorContent.data.url}',
+                                    '_blank')">
+                        
+                    <tr>
+                        
+                        <td class="captionPicture waitForLoading">    
+                            <img src="${post.authorContent.data.captionPicture}"
+                             style="border: 0px; margin-bottom: -4px;"
+                             onload="templateImageManagement($(this));" />
+                        </td>
+                    
+                    </tr>
+                        
+                    <tr>
+
+                        <td class="summary">
+
+                                <a href="#">
+                                    ${post.authorContent.data.summaryTitle}    
+                                </a><br /><br />
+
+                                    ${post.authorContent.data.summaryDescription}
+                        </td>
+                        
+                    </tr></table>
+
+                </div>
+            
+            {{else post.authorContent.type == 'photo'}}
+            
+                {{if post.authorContent.data.status != ''}}
+            
+                    <div class="status noPossibleAnswer">
+                        {{html post.authorContent.data.status}}
+                    </div>
+                
+                {{else}}
+                
+                    <div style="height: 12px;"></div>
+                
+                {{/if}}
+                
+                <img src="${post.authorContent.data.photoUrl}"
+                     style="width: 244px;
+                            height: ${post.authorContent.data.photoHeight}px;"
+                     class="noPossibleAnswer waitForLoading" />
+            
+            {{/if}}
+            
+        <!-- LIKERS -->
+        
+            {{if post.friendsContent.likers.length > 0}}
+            <div class="likersContainer personPossibleAnswer"
+                 correctAnswer="{{for(i=0; i < post.friendsContent.likers.length; i++)}}{{if i < post.friendsContent.likers.length - 1}}${post.friendsContent.likers[i].userFBID},{{else}}${post.friendsContent.likers[i].userFBID}{{/if}}{{/for}}"
+                                
+                 currentLikers="0"
+                 totalLikers="${post.friendsContent.likers.length}">
+                
+                
+                {{if post.authorContent.type == 'friendsInCommon'}}
+                
+                    <span class="personName">
+                        
+                    {{if post.friendsContent.likers.length == 1}}
+                        Friend
+                    {{else}}
+                        Friends
+                    {{/if}}
+                
+                        in common:</span>
+                    
+                {{else}}
+                
+                    <img src="./view/images/like_small.png" 
+                     style="margin-right: 3px;" />
+                
+                {{/if}}
+                
+                {{for(i=0; i < post.friendsContent.likers.length; i++)}}
+                    {{if i < post.friendsContent.likers.length - 1}}
+                        <span class="likersName emptyDots">
+                            . . . . . . . . . . . . . .</span>,
+                    {{else}}
+                        <span class="likersName emptyDots">
+                            . . . . . . . . . . . . . .</span>
+                    {{/if}}    
+                {{/for}}
+                
+                {{if post.authorContent.type != 'friendsInCommon'}}
+                
+                    {{if post.friendsContent.likers.length == 1}}
+                        likes this.
+                    {{else}}
+                        like this.
+                    {{/if}}
+                
+                {{/if}}
+                
+            </div>
+            {{/if}}
+            
+        <!-- COMMENTS -->
+            
+            {{each(ii, comment) post.friendsContent.comments}}
+        
+                {{if comment.whatToFind == 'name'}}
+                
+                    <div class="commentContainer personPossibleAnswer"
+                         correctAnswer="${comment.userFBID}">
+                        <table><tr><td>
+                        <img src="./view/images/unkown_profile_pic.gif" 
+                             class="profilePicture waitForLoading" />
+                        </td><td>
+                        <span class="personName emptyDots">
+                            . . . . . . . . . . . . . .
+                        </span>
+                            {{html comment.content}}
+                        </td></tr></table>
+                    </div>
+
+                {{else comment.whatToFind == 'comment'}}
+
+                    <div class="commentContainer commentPossibleAnswer"
+                         correctAnswer="${comment.commentFBID}">
+                        <table><tr><td>
+                        <img src="${comment.profilePicture}" 
+                             class="profilePicture waitForLoading" />
+                        </td><td>
+                        <span class="personName">${comment.name}</span>
+                        <span class="personComment emptyDots">
+                            . . . . . . . . . . . . . . . . . . . . . . . .
+                            . . . . . . . . . . . . . . . . . . . . . . . .
+                            . . . . . . . . . . . . . . . . . . . . . . . .
+                        </span>
+                        </td></tr></table>
+                    </div>
+
+                {{/if}}
+            
+            {{/each}}
+            
+
+</div></div>
+
+{{/each}}
+
+<div class="spinePointerLeft"></div>
+<div class="spinePointerRight"></div>
+
+</div>
+
+<!-- DRAGGABLE ITEMS -->
+
+{{each(i, post) dynamicTemplateData}}
+
+    {{each(j, comment) post.friendsContent.comments}}
+    
+        {{if comment.whatToFind == 'comment'}}
+            
+            <div class="draggableItem" userAnswer="${comment.commentFBID}">    
+            <div class="commentProposal" style="left: 50px; top: 120px;">
+            <div class="commentContainer" style="border-bottom: 0px;">
+                    
+                    <img src="./view/images/unkown_profile_pic.gif" 
+                         class="profilePicture waitForLoading" />
+                    
+                    <span class="personName emptyDots">
+                        . . . . . . . . . . . . . .
+                    </span>
+                    
+                    <span class="personComment">
+                        {{html comment.content}}
+                    </span>
+                        
+            </div></div></div>
+        
+        {{else comment.whatToFind == 'name'}}
+        
+            <div class="draggableItem" userAnswer="${comment.userFBID}"
+                onmouseover="$(this).children().children('.personName').show();"
+                onmouseout="$(this).children().children('.personName').hide();">
+
+                <div class="personProposal">
+                    <img src="${comment.profilePicture}"
+                     class="profilePicture waitForLoading" />
+
+                <span class="personName" style="display: none;">
+                    ${comment.name}
+                </span>
+    
+            </div></div>
+        
+        {{/if}}
+    
+    {{/each}}
+
+    {{each(k, liker) post.friendsContent.likers}}
+    
+            <div class="draggableItem" userAnswer="${liker.userFBID}"
+                onmouseover="$(this).children().children('.personName').show();"
+                onmouseout="$(this).children().children('.personName').hide();">
+
+                <div class="personProposal">
+                    <img src="${liker.profilePicture}"
+                     class="profilePicture waitForLoading" />
+
+                <span class="personName" style="display: none;">
+                    ${liker.name}
+                </span>
+    
+            </div></div>
+    
+    {{/each}}
+    
+    
+
+{{/each}}
+
+
+<!-- SCORE HEADER -->
+
+<div id="generalHeader">
+    
+    <div id="left">
+        <span style="font-weight: bold;">Score:</span><br />
+        (Level ${user.level})
+    </div>
+    
+    <div id="center">
+        <table id="scoreTable"><tr>
+           
+           {{for(i = 1; i <= (user.level * 5); i++)}}
+                
+                <td id="scoreCell_${i}" class="scoreCell 
+                    
+                    {{if user.score >= i}}
+                        activated
+                    {{else}}
+                        empty
+                    {{/if}}"></td>
+            
+           {{/for }}
+
+        </tr></table>
+
+    </div>
+    
+    <div id="right">
+        <a href="#" onclick="app.pageLoader.loadTemplate('about_this');"
+           class="about">About<br/>this...</a>
+    </div>
+    
+</div>
+
+
+<!-- PEOPLE CHOICE -->
+<div id="peopleChoice_2" class="peopleChoiceItem"><img src="" /></div>
+<div id="peopleChoice_1" class="peopleChoiceItem"><img src="" /></div>
+<div id="peopleChoice_0" class="peopleChoiceItem"><img src="" /></div>
+
+
+<!-- NEXT QUESTION BUTTON -->
+<div id="nextQuestionButton" class="disabled"></div>
+
+<div id="nextQuestionButtonAnimation">
+    <img src="./view/images/next_question_button_big.png" />
+</div>

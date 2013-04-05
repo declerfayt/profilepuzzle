@@ -1,0 +1,16 @@
+SELECT object_id
+FROM like
+WHERE object_id IN
+(    
+    SELECT object_id
+    FROM photo
+    WHERE aid IN 
+    (
+        SELECT aid
+        FROM album 
+        WHERE owner = {{friendID}}
+    )
+)
+AND user_id = {{userID}}
+ORDER BY rand()
+LIMIT 1000

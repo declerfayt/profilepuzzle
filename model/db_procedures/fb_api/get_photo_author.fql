@@ -1,0 +1,10 @@
+SELECT uid,
+       first_name,
+       last_name,
+       pic_square
+FROM user
+WHERE uid IN
+(
+    SELECT owner
+    FROM #{{photoQuery}}
+)

@@ -1,0 +1,11 @@
+SELECT object_id
+FROM comment
+WHERE object_id IN
+(    
+    SELECT status_id
+    FROM status
+    WHERE uid = {{friendID}}
+)
+AND fromid = {{userID}}
+ORDER BY rand()
+LIMIT 1000

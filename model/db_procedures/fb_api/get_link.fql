@@ -1,0 +1,10 @@
+SELECT link_id,
+       created_time,
+       picture,
+       owner_comment,
+       summary,
+       title,
+       url,
+       owner
+FROM link 
+WHERE link_id = {{postID}}

@@ -1,0 +1,33 @@
+.draggableItem {
+    
+    position: fixed;
+    cursor: move;
+    z-index: 2;
+    padding: 15px;
+    border: 0px;
+    border-radius: 10px;
+}
+
+.draggableItem:hover {
+
+    z-index: 3;
+    background: url("../images/white_transp_background.png") repeat transparent;
+}
+
+.personProposal {
+    
+    height: 32px;
+}
+
+.commentProposal {
+ 
+    width: 244px;
+    border: #FFFFFF solid 1px;
+    z-index: 3;
+    top: 100px;
+}
+
+.highlightPossibleAnswer {
+    
+    background-color: #C4CDE0;
+}

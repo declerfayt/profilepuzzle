@@ -1,0 +1,59 @@
+html {
+    
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    
+    color: #333333;
+    font-size: 11px;
+    line-height: 1.28;
+    text-align: left;
+    direction: ltr;
+    font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+    word-wrap: break-word;
+    cursor: default;
+    background-color: #E7EBF2;
+    background-position: 285px 0px;
+    background-repeat: repeat-y;
+}
+
+img .waitForLoading {
+    
+    background: url("../images/progress_bar.gif") no-repeat center transparent;
+}
+
+a, a:visited {
+    
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover {
+    
+    text-decoration: underline;
+}
+
+table, tr, td {
+    
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+    vertical-align: top;
+}
+
+#questionLayer, #popUpLayer, #progressBarLayer, #startupLayer, #prerenderLayer {
+    
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+#prerenderLayer {
+    
+   visibility: hidden;
+   z-index: -1;
+}

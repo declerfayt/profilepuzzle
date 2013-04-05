@@ -1,0 +1,10 @@
+SELECT object_id
+FROM photo 
+WHERE aid IN 
+(
+     SELECT aid
+     FROM album 
+     WHERE owner = me()
+     LIMIT 500
+)
+LIMIT 500

@@ -1,0 +1,7 @@
+SELECT id,
+       fromid,
+       text
+FROM comment
+WHERE object_id = {{postID}}
+ORDER BY time
+LIMIT 5

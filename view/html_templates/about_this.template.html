@@ -1,0 +1,114 @@
+<div id="popUpOuterBox">
+
+    <div id="popUpInnerBox">
+    
+        <div class="header">Profile Puzzle</div>
+        
+        <div class="content">
+        
+            <div class="post">
+                
+               <!-- POST HEADER --> 
+                
+                    <div class="popupHeader">
+                        <img src="./view/images/jbdc_profile_picture.jpg"
+                             class="profilePicture waitForLoading" />
+                        <span class="personName">
+                            Jean-Baptiste de Clerfayt
+                        </span><br />
+                        <span class="date">Design & code</span>
+                        &nbsp;
+                        <img src="./view/images/friends.png" />
+                        <div class="headerBreakbar"></div>
+                        
+                    </div>
+                
+              <!-- USER CONTENT --> 
+        
+                    <div class="status">
+                        Follow Profile Puzzle on 
+                        <a href="http://www.facebook.com/pages/Profile-Puzzle-Community/449379088470113" target="_blank" class="userLink">Facebook</a>,
+                        <a href="http://www.twitter.com/profilepuzzle" target="_blank" class="userLink">Twitter</a> and
+			   <a href="http://www.youtube.com/user/profilepuzzle" target="_blank" class="userLink">YouTube</a>.
+                        Contact at <a href="mailto:contact@profilepuzzle.com"  class="userLink">
+                        contact@profilepuzzle.com</a>
+                    </div>
+
+                
+             <!-- LIKERS --> 
+        
+            
+                <div class="likersContainer" style="margin-left: 3px; margin-right: 3px;">
+                
+                  <img src="./view/images/like_small.png" 
+                     style="margin-right: 3px;" />
+                
+                  <span class="likersName">
+                            Jean-Baptiste's mom
+                  </span>
+                
+                    likes this.
+                
+                </div>
+            
+         <!-- COMMENTS --> 
+            
+            <div class="commentContainer" style="margin-left: 3px; margin-right: 3px;">
+                
+                        <table><tr><td>
+                        <img src="./view/images/mz_profile_picture.jpg" 
+                             class="profilePicture waitForLoading" />
+                        </td><td>
+                        <span class="personName">
+                            Mark Zuckerberg
+                        </span>
+                            Profile Puzzle is a third-party application which
+                            has no link with Facebook Inc.
+                        </td></tr></table>
+                    </div>
+                        
+            <div id="konamiCode" class="commentContainer" 
+                 style="margin-left: 3px; margin-right: 3px; display: none;">
+                
+                        <table><tr><td>
+                        <img src="./view/images/kc_profile_picture.jpg" 
+                             class="profilePicture waitForLoading" />
+                        </td><td>
+                        <span class="personName">
+                            Konami code! <img src="./view/images/emoticons/wink.png" class="emoticon" />
+                        </span>
+                            <a href="http://www.youtube.com/watch?v=ZS_8MC-bJdQ" class="userLink" target="_blank">
+                                http://www.youtube.com/watch?v=ZS_8MC-bJdQ
+                            </a>   
+                        </td></tr></table>
+                    </div>
+              
+               <div style="height: 2px;"></div>
+         
+            </div>
+            
+            
+            
+        </div>
+        
+        <div class="footer">
+            
+            <div class="okButton">OK</div>
+            
+        </div>
+    </div>
+    
+<script type="text/javascript">
+
+    $(document).keydown(function(event) {
+        
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        if(keycode == '123') { 
+            
+            $('#konamiCode').fadeIn(1000);
+            
+        }
+        
+    });
+
+</script>      
